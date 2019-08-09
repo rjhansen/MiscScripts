@@ -80,7 +80,7 @@ while ((Get-Date) -le $endAt) {
     Get-ChildItem -Name -File $SourceDir | ForEach-Object -Process {
         # If you don't know regular expressions, learn them before you
         # mess around with this next line.
-        if ($_ -match "^.*(\d{4})\..*$") {
+        if ($_ -match "^.*(\d{4}).*\..*$") {
             # Convert the 24-hour timestamp to an integer.
             [string]$fileTimestamp = $Matches[1]
             [int]$thisTimestamp = [convert]::ToInt32($fileTimestamp, 10)
