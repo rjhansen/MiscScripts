@@ -302,5 +302,10 @@ namespace Cardsharp
         {
             System.Diagnostics.Process.Start("https://github.com/rjhansen/MiscScripts/issues");
         }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

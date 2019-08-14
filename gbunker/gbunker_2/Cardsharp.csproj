@@ -177,7 +177,22 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe" sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /a $(TargetPath)
-if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe" sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /a $(TargetDir)*.dll</PostBuildEvent>
+    <PostBuildEvent>set signtool="C:\Program Files (x86)\Microsoft SDKs\ClickOnce\SignTool\signtool.exe"
+set version="Cardsharp-0.2"
+set enabledelayedexpansion
+
+if $(ConfigurationName) == Release (
+
+%25signtool%25 sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /a $(TargetPath)
+%25signtool%25 sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /a $(TargetDir)*.dll
+
+rmdir /s /q %25version%25
+mkdir %25version%25
+copy $(TargetPath) %25version%25
+copy $(TargetDir)*.dll %25version%25
+"C:\Program Files\7-Zip\7z.exe" a  -r Cardsharp.zip -w %25version%25
+move Cardsharp.zip $(TargetDir)
+rmdir /s /q %25version%25
+)</PostBuildEvent>
   </PropertyGroup>
 </Project>

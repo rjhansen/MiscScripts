@@ -9,7 +9,7 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
             <Menu>
-                <MenuItem Header="_File">
+                <MenuItem Header="_File" Click="MenuItem_Click_2">
                     <MenuItem Header="_Quit" />
                 </MenuItem>
                 <MenuItem Header="_Help">
