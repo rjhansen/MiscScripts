@@ -1,0 +1,26 @@
+﻿<Window x:Class="Cardsharp.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cardsharp"
+        mc:Ignorable="d"
+        Title="About Cardsharp" Height="auto" Width="1024">
+    <DockPanel Margin="10,10,10,10" VerticalAlignment="Center">
+        <Label DockPanel.Dock="Top" Content="Cardsharp 0.2" FontWeight="ExtraBold" FontSize="36" HorizontalAlignment="Center"/>
+        <StackPanel Width="320" DockPanel.Dock="Left">
+            <Image DockPanel.Dock="Left" Source="/Images/Cardsharps.jpg" Width="300" HorizontalAlignment="Center"/>
+            <Label FontStyle="Italic" FontSize="16" HorizontalAlignment="Center">“The Cardsharps” by Caravaggio, 1594.</Label>
+        </StackPanel>
+        <DockPanel Margin="15, 0, 15, 15">
+            <TabControl VerticalAlignment="Stretch" Width="auto" Height="auto">
+                <TabItem Header="How It Works">
+                    <WebBrowser Name="instructionBrowser"/>
+                </TabItem>
+                <TabItem Header="License">
+                    <WebBrowser Name="licenseBrowser"/>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </DockPanel>
+</Window>

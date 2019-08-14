@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Instructions for Use</title>
+</head>
+<body>
+    <h1>Instructions for Use</h1>
+    <hr/>
+    <h2>Overview</h2>
+    <p>
+        Cardsharp is a tool for moving files from one directory (which we’ll call <i>src</i>)
+        to another directory (which we’ll call <i>dst</i>) according to some specific rules.
+        Once started, it will remain running until stopped (either by clicking on the stop
+        button or by closing the window).  You can drop files into <i>src</i> while the
+        application is running and it won’t miss a beat.
+    </p>
+    <h2>Security considerations</h2>
+    <p>
+        This application will need access to your hard drive.  If you click on “Help” and then
+        “Report a Bug” it will attempt to open a web browser to point to GitHub. If you click on
+        a hyperlink in this document it will try to open your default email client to send me a
+        message.  It does nothing else with the network, and may be run disconnected without
+        any loss of important functionality.
+    </p>
+    <h2>So what does it copy?</h2>
+    <p>
+        Any file that has a four-digit 24-hour timestamp in the filename in the range 0000-2359.
+        Cardsharp will interpret the timestamp as the time the file should be moved.  At any
+        given time in a given day, Cardsharp looks to find all files with a timestamp before the
+        current moment.  These files will be moved from <i>src</i> to <i>dst.</i>
+    </p>
+    <h2>What’s the center region displaying?</h2>
+    <p>
+        On the left you’ll see a list of all the timestamped files found in <i>src.</i>  On the
+        right you’ll see a list of all the timestamped files found in <i>dst.</i>  This way you
+        can at-a-glance ensure files are being moved appropriately.
+    </p>
+    <h2>Who wrote this?</h2>
+    <p>
+        Rob Hansen, <a href="mailto:rob@hansen.engineering&subject=Cardsharp%200.2">rob@hansen.engineering</a>.
+    </p>
+</body>
+</html>

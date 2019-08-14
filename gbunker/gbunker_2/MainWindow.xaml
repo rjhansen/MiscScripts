@@ -1,0 +1,74 @@
+﻿<Window x:Name="mainWindow" x:Class="Cardsharp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cardsharp"
+        mc:Ignorable="d"
+        Title="Cardsharp 0.2" Height="480" Width="640" Closing="MainWindow_Closing">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
+            <Menu>
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Quit" />
+                </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem Header="_About" Click="MenuItem_Click" />
+                    <MenuItem Header="Report a bug" Click="MenuItem_Click_1"/>
+                </MenuItem>
+            </Menu>
+        <Grid Margin="10,10,10,10" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Source directory:</Label>
+            <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Destination directory:</Label>
+            <TextBox Name="sourceDir" Grid.Row="0" Grid.Column="1" TextChanged="SourceDir_TextChanged"></TextBox>
+            <TextBox Name="destinationDir" Grid.Row="1" Grid.Column="1" TextChanged="DestinationDir_TextChanged"></TextBox>
+            <Button Name="sourceButton" Grid.Row="0" Grid.Column="3" Margin="10,0,0,0" Padding="10,0,10,0" Click="SourceButton_Click">Choose…</Button>
+            <Button Name="destinationButton" Grid.Row="1" Grid.Column="3" Margin="10,0,0,0" Padding="10,0,10,0" Click="DestinationButton_Click">Choose…</Button>
+        </Grid>
+        </StackPanel>
+        <DockPanel DockPanel.Dock="Bottom" Margin="10,25,10,10" HorizontalAlignment="Stretch" LastChildFill="False">
+            <Button Name="stopButton" DockPanel.Dock="Left" Width="80" IsEnabled="False" Click="StopButton_Click">Stop</Button>
+            <Button Name="startButton" DockPanel.Dock="Right" Width="80" IsEnabled="False" Click="StartButton_Click">Start</Button>
+        </DockPanel>
+        <GroupBox Header="File Status">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Row="0" Grid.Column="0" Header="In source dir">
+                    <ListBox Name="sourceBox">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                </GroupBox>
+                <GroupBox Grid.Row="0" Grid.Column="1" Header="In destination dir">
+                    <ListBox Name="destinationBox">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                </GroupBox>
+                <Label Name="statusBar" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">Set your directories.</Label>
+            </Grid>
+        </GroupBox>
+    </DockPanel>
+</Window>
